@@ -33,16 +33,16 @@ class RS4 (GObject.Object, Peas.Activatable):
 
 	def playing_changed(self,player,playing):
 		if playing:
-			self.set_entry(player.get_playing_entry())
 			print ("Playing")
+			self.set_entry(player.get_playing_entry())
 		else:
 			self.current_entry= None
 			print("Not Playing")
 
 	def playing_song_changed(self,player,entry):
 		if player.get_playing()[1]:
-			self.set_entry(entry)
 			print("Playing Song Changed")
+			self.set_entry(entry)
 
 	def playing_song_property_changed(self, player, uri,property, old, new):
 		if player.get_playing()[1] and property in ('title', 'rb:stream-song-title'):
